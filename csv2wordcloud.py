@@ -1,9 +1,10 @@
 import csv
 import MeCab
 from wordcloud import WordCloud
+import sys
 
 #csvファイルを指定-------------
-csvFile = input('csv file name : ')
+csvFile = sys.argv[1]
 savename = input('Img savename : ')
 #------------
 
@@ -43,5 +44,5 @@ for i in wordList:
 wordcloud = WordCloud(background_color="white", font_path=fpath, width=900, height=500).generate(texts)
 
 # 画像の生成
-wordcloud.to_file(savename + '.png')
+wordcloud.to_file('results/'+ savename + '.png')
 print('Done!')
